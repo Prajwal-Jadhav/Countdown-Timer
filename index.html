@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="input__field">
+      <div class="input__field__date">
+        <input
+          type="number"
+          name="day"
+          id="input__day"
+          placeholder="DD"
+          autocomplete="off"
+          class="input"
+        />
+        <input
+          type="number"
+          name="month"
+          id="input__month"
+          placeholder="MM"
+          autocomplete="off"
+          class="input"
+        />
+        <input
+          type="number"
+          name="year"
+          id="input__year"
+          placeholder="YY"
+          autocomplete="off"
+          class="input"
+        />
+      </div>
+      <div class="input__field__time">
+        <input
+          type="number"
+          name="hours"
+          id="input__hours"
+          placeholder="hh"
+          autocomplete="off"
+          class="input"
+        />
+        <input
+          type="number"
+          name="minutes"
+          id="input__minutes"
+          placeholder="mm"
+          autocomplete="off"
+          class="input"
+        />
+      </div>
+    </div>
+    <button id="start__btn">Start Countdown</button>
+
+    <div class="display__field">
+      <div class="label">Days</div>
+      <div class="label">Hours</div>
+      <div class="label">Minutes</div>
+      <div class="label">Seconds</div>
+
+      <div class="display__days">00</div>
+      <div class="display__hours">00</div>
+      <div class="display__minutes">00</div>
+      <div class="display__seconds">00</div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
