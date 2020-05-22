@@ -44,68 +44,6 @@ function compute() {
   );
 }
 
-// inputField.forEach((i) => {
-//   i.addEventListener("input", function (e) {
-//     i.value = e.target.value;
-//     let targetDate = new Date(
-//       input__year.value,
-//       input__month.value - 1,
-//       input__day.value,
-//       input__hours.value,
-//       input__minutes.value
-//     );
-
-//     totalSeconds = Math.floor((targetDate.getTime() - Date.now()) / 1000);
-
-//     console.log(totalSeconds);
-
-//     days = Math.floor(totalSeconds / (24 * 3600));
-
-//     hours = Math.floor((totalSeconds - days * 24 * 3600) / 3600);
-
-//     minutes = Math.floor((totalSeconds - days * 24 * 3600 - hours * 3600) / 60);
-
-//     seconds = Math.floor(
-//       totalSeconds - days * 24 * 3600 - hours * 3600 - minutes * 60
-//     );
-//   });
-// });
-
-input__day.addEventListener(
-  "input",
-  (e) => (input__day.value = e.target.value)
-);
-input__month.addEventListener(
-  "input",
-  (e) => (input__month.value = e.target.value)
-);
-input__year.addEventListener(
-  "input",
-  (e) => (input__year.value = e.target.value)
-);
-input__hours.addEventListener(
-  "input",
-  (e) => (input__hours.value = e.target.value)
-);
-input__minutes.addEventListener(
-  "input",
-  (e) => (input__minutes.value = e.target.value)
-);
-
-start__btn.addEventListener("click", () => {
-  compute();
-  if (totalSeconds < 0) return;
-  else if (!hasCountdownStarted) {
-    hasCountdownStarted = true;
-    timerId = setInterval(countdown, 1000);
-  }
-});
-
-stop__btn.addEventListener("click", () => {
-  clearInterval(timerId);
-  hasCountdownStarted = false;
-});
-
 function countdown() {
   if (seconds === 0) {
     if (hours > 0 || minutes > 0 || days > 0) seconds = 59;
@@ -136,3 +74,26 @@ function countdown() {
   display__minutes.innerHTML = minutes < 10 ? "0" + minutes : minutes;
   display__seconds.innerHTML = seconds < 10 ? "0" + seconds : seconds;
 }
+
+inputField.forEach((i) => {
+  i.addEventListener("input", function (e) {
+    i.setAttribute("value", e.target.value);
+    compute();
+  });
+});
+
+start__btn.addEventListener("click", () => {
+  compute();
+  if (totalSeconds < 0) {
+    alert("You can set countdown for future dates only, NOT past!!!");
+    return;
+  } else if (!hasCountdownStarted) {
+    hasCountdownStarted = true;
+    timerId = setInterval(countdown, 1000);
+  }
+});
+
+stop__btn.addEventListener("click", () => {
+  clearInterval(timerId);
+  hasCountdownStarted = false;
+});

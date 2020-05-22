@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <h1 class="heading">Set the date</h1>
     <div class="input__field">
       <div class="input__field__date">
         <input
@@ -29,7 +30,7 @@
           type="number"
           name="year"
           id="input__year"
-          placeholder="YY"
+          placeholder="YYYY"
           autocomplete="off"
           class="input"
         />
@@ -53,10 +54,6 @@
         />
       </div>
     </div>
-    <div class="buttons">
-      <button id="start__btn">Start Countdown</button>
-      <button id="stop__btn">Stop</button>
-    </div>
 
     <div class="display__field">
       <div class="label">Days</div>
@@ -64,11 +61,20 @@
       <div class="label">Minutes</div>
       <div class="label">Seconds</div>
 
-      <div class="display__days">00</div>
-      <div class="display__hours">00</div>
-      <div class="display__minutes">00</div>
-      <div class="display__seconds">00</div>
+      <div class="display__days timer">00</div>
+      <div class="display__hours timer">00</div>
+      <div class="display__minutes timer">00</div>
+      <div class="display__seconds timer">00</div>
     </div>
+
+    <div class="buttons">
+      <button id="start__btn">Start Countdown</button>
+      <button id="stop__btn">Stop</button>
+    </div>
+
+    <footer class="footer">
+      <p class="info">Created with ❤ by Prajwal Jadhav</p>
+    </footer>
     <script src="./app.js"></script>
   </body>
 </html>
